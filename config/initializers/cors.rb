@@ -7,10 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins ENV['ALLOWED_ORIGIN'] || '*'
+    origins 'https://res-ttodoapp-d8b6wfu6a-dabadahiburis-projects.vercel.app/'  # VercelでのデプロイURLを指定
     
     resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
+
