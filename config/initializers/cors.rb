@@ -7,10 +7,10 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'  # または特定のドメイン 'https://your-frontend-domain.com'
+    origins ENV['ALLOWED_ORIGIN'] || '*'
+    
     resource '*',
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      credentials: true
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
