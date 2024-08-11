@@ -28,6 +28,14 @@ class TodosController < ApplicationController
     @todo.destroy
   end
 
+  def update
+    if @todo.update(todo_params)
+      render json: @todo
+    else
+      render json: @todo.errors, status: :unprocessable_entity
+    end
+  end
+  
   private
 
   def set_todo
